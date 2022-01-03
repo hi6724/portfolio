@@ -1,20 +1,19 @@
 import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "../utils/colors";
 const headerList = [
   { text: "메인", path: "/" },
   { text: "포트폴리오", path: "/portfolio" },
   { text: "소개", path: "/introduce" },
-  { text: "문의", path: "/connect" },
+  { text: "문의", path: "/contact" },
 ];
 
 export default function Header() {
-  const location = useLocation();
   return (
     <Container>
       <NavLink to={"/"}>
-        <img src={"/images/logo.png"} style={{ width: 250 }} />
+        <img src={"/images/logo.png"} style={{ height: "10vh" }} />
       </NavLink>
       <NavContainer>
         {headerList.map((header, index) => (
@@ -22,7 +21,7 @@ export default function Header() {
             style={({ isActive }) => {
               return {
                 textDecoration: "none",
-                color: isActive ? "tomato" : "rgba(0,0,0,0.5)",
+                color: isActive ? "black" : colors.gray,
                 fontWeight: isActive ? "600" : "",
               };
             }}
@@ -38,9 +37,10 @@ export default function Header() {
 }
 
 export const Container = styled.div`
+  height: 10vh;
   display: flex;
   justify-content: space-between;
-  padding: 5px 10vw;
+  padding: 0px 10vw;
 `;
 
 const NavContainer = styled.nav`
@@ -49,10 +49,9 @@ const NavContainer = styled.nav`
   align-items: center;
 `;
 const NavText = styled.span`
-  transition: all 0.2s;
   font-family: "BM-Air";
   :hover {
-    color: tomato;
+    color: ${colors.purple};
     font-weight: 600;
   }
 `;

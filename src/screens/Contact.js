@@ -1,10 +1,10 @@
 import React from "react";
 import ScreenLayout from "../components/ScreenLayout";
 
-export default function Portfolio() {
+export default function Contact() {
   return (
     <ScreenLayout>
-      <div style={{ width: "100vw", backgroundColor: "tomato", height: "100vh" }}></div>
+      <div style={{ width: "100vw", backgroundColor: "blue", height: "100vh" }}></div>
     </ScreenLayout>
   );
 }
