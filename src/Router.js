@@ -11,7 +11,7 @@ import Project from "./screens/Project";
 export default function Router() {
   const location = useLocation();
   return (
-    <div style={{ overflowX: "hidden", position: "relative", width: "100vw", height: "110vh" }}>
+    <div style={{ overflowX: "hidden", position: "relative", width: "100vw", height: "100vh" }}>
       <AnimatePresence>
         <Header />
         <Routes location={location} key={location.pathname}>

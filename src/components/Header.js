@@ -38,7 +38,10 @@ export default function Header() {
 
 export const Container = styled.div`
   height: 10vh;
+  width: 80vw;
+  background-color: white;
   display: flex;
+  top: 0;
   justify-content: space-between;
   padding: 0px 10vw;
 `;

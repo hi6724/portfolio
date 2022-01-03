@@ -7,12 +7,12 @@ import Portfolio from "./screens/Portfolio";
 import Project from "./screens/Project";
 import "./index.css";
 import Router from "./Router";
+import { Reset } from "styled-reset";
 
 ReactDOM.render(
-  <div style={{ overflowX: "hidden", position: "relative" }}>
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
-  </div>,
+  <BrowserRouter>
+    <Reset />
+    <Router />
+  </BrowserRouter>,
   document.getElementById("root")
 );
