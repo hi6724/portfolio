@@ -62,8 +62,8 @@ const Card = styled.div`
   align-items: center;
 `;
 const HomeContainer = styled.div`
-  height: 90vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-image: url("/images/japan.jpg");
   background-position: center;
   background-size: cover;

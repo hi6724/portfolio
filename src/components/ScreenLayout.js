@@ -37,7 +37,7 @@ export default function ScreenLayout({ children }) {
       transition={pageTransition}
       variants={pageVariants}
     >
-      {children}
+      <div style={{ height: "90vh", width: "100vw" }}>{children}</div>
     </motion.div>
   );
 }
