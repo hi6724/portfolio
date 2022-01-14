@@ -21,7 +21,7 @@ export default function Contact() {
           <BoldText style={{ fontSize: 20, marginBottom: 10 }}>문의 및 피드백을 기다립니다!</BoldText>
           <BoldText style={{ fontSize: 50 }}>문의하기</BoldText>
           <SlimText>부천시 장말로 136</SlimText>
-          <SlimText>hi6724@gmail.com | 010-4023-6724</SlimText>
+          <SlimText>hi6724@gmail.com | +8180-9437-9431</SlimText>
           <div style={{ display: "flex", gap: 15 }}>
             <SnsLink href={"https://github.com/hi6724"} target="_blank">
               <IoLogoGithub size={"3vw"} color={colors.gray} />

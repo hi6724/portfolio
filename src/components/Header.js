@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "../utils/colors";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 const headerList = [
   { text: "메인", path: "/" },
   { text: "포트폴리오", path: "/portfolio" },
@@ -10,6 +13,14 @@ const headerList = [
 ];
 
 export default function Header() {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <Container>
       <NavLink to={"/"}>
@@ -31,12 +42,42 @@ export default function Header() {
             <NavText className={({ isActive }) => "nav-link" + (!isActive ? " unselected" : "")}>{header.text}</NavText>
           </NavLink>
         ))}
+        <Button
+          id="basic-button"
+          aria-controls={open ? "basic-menu" : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? "true" : undefined}
+          onClick={handleClick}
+        >
+          Language
+        </Button>
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            "aria-labelledby": "basic-button",
+          }}
+        >
+          <MenuItem onClick={handleClose}>
+            <MenuText>한국어</MenuText>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <MenuText>English</MenuText>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <MenuText style={{ fontFamily: "ヒラギノ角ゴ Pro W3" }}>日本語</MenuText>
+          </MenuItem>
+        </Menu>
       </NavContainer>
     </Container>
   );
 }
-
-export const Container = styled.div`
+const MenuText = styled.h1`
+  font-family: "BM-Air", sans-serif, "Courier New", Courier, "ヒラギノ角ゴ Pro W3";
+`;
+const Container = styled.div`
   height: 10vh;
   width: 80vw;
   background-color: white;
@@ -45,7 +86,6 @@ export const Container = styled.div`
   justify-content: space-between;
   padding: 0px 10vw;
 `;
-
 const NavContainer = styled.nav`
   display: flex;
   gap: 10px;

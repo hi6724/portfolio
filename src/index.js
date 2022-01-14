@@ -8,11 +8,14 @@ import Project from "./screens/Project";
 import "./index.css";
 import Router from "./Router";
 import { Reset } from "styled-reset";
-
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 ReactDOM.render(
-  <BrowserRouter>
-    <Reset />
-    <Router />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <Reset />
+      <Router />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
