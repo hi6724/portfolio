@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = { value: "korean" };
+const initialState = { value: "한국어" };
 
 const languageSlice = createSlice({
   name: "language",

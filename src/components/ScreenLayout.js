@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 
 const pageVariants = {
   initial: {
@@ -28,6 +28,14 @@ const pageStyle = {
 };
 
 export default function ScreenLayout({ children }) {
+  const [viewport, setViewport] = useState(window.innerHeight);
+  window.addEventListener(
+    "resize",
+    function (event) {
+      setViewport(event.target.innerHeight);
+    },
+    true
+  );
   return (
     <motion.div
       style={pageStyle}
@@ -37,7 +45,7 @@ export default function ScreenLayout({ children }) {
       transition={pageTransition}
       variants={pageVariants}
     >
-      <div style={{ height: "90vh", width: "100vw" }}>{children}</div>
+      <div style={{ height: viewport - 5, width: "100vw" }}>{children}</div>
     </motion.div>
   );
 }

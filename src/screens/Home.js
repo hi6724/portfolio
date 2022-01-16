@@ -24,21 +24,21 @@ export default function Home() {
 }
 const Divider = styled.div`
   margin: 15px 0px;
-  width: min(30vh, 30vw);
+  width: 20vw;
   border-bottom: min(0.5vh, 0.5vw) solid;
 `;
 const Year = styled.h1`
   font-family: "BM-Air";
-  font-size: min(3vw, 3vh);
+  font-size: 1.5vw;
 `;
 const BigText = styled.h1`
   font-family: "BM-Air";
-  font-size: min(6vw, 6vh);
+  font-size: min(3vw);
 `;
 
 const Portfolio = styled(Link)`
   color: ${colors.gray};
-  font-size: min(4vw, 4vh);
+  font-size: min(2vw);
   font-family: "BM-Air";
   text-decoration: none;
   :hover {
@@ -47,17 +47,17 @@ const Portfolio = styled(Link)`
 `;
 
 const Image = styled.img`
-  width: min(30vh, 30vw);
-  border-radius: 15px;
+  width: min(15vw);
+  border-radius: 15vw;
   margin-right: 25px;
 `;
 
 const Card = styled.div`
-  height: min(35vh, 35vw);
-  width: min(70vh, 70vw);
+  height: min(10vw);
+  width: min(35vw);
   border-radius: 15px;
   background-color: white;
-  padding: min(5vh, 5vw);
+  padding: min(5vw);
   display: flex;
   align-items: center;
 `;

@@ -1,7 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import React from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import App from "./App";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Contact from "./screens/Contact";
 import Home from "./screens/Home";
@@ -17,7 +16,7 @@ export default function Router() {
         <Routes location={location} key={location.pathname}>
           <Route index element={<Home />} />
           <Route path="portfolio" element={<Portfolio />} />
-          <Route path="project" element={<Project />} />
+          <Route path="portfolio/project/:id" element={<Project />} />
           <Route path="introduce" element={<Introduce />} />
           <Route path="contact" element={<Contact />} />
           <Route

@@ -1,10 +1,18 @@
 import React from "react";
+import styled from "styled-components";
 import ScreenLayout from "../components/ScreenLayout";
 
 export default function Introduce() {
   return (
     <ScreenLayout>
-      <div style={{ width: "100vw", backgroundColor: "green", height: "90vh" }}></div>
+      <Container></Container>
     </ScreenLayout>
   );
 }
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

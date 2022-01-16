@@ -5,6 +5,9 @@ import { colors } from "../utils/colors";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { change } from "../store/reducers/languageReducer";
 const headerList = [
   { text: "메인", path: "/" },
   { text: "포트폴리오", path: "/portfolio" },
@@ -13,6 +16,9 @@ const headerList = [
 ];
 
 export default function Header() {
+  const { languageReducer } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  console.log(languageReducer);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -21,10 +27,15 @@ export default function Header() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleLanguage = (language) => {
+    console.log(language);
+    dispatch(change(language));
+    setAnchorEl(null);
+  };
   return (
     <Container>
       <NavLink to={"/"}>
-        <img src={"/images/logo.png"} style={{ height: "10vh" }} />
+        <img alt="logo" src={"/images/logo.png"} style={{ height: "50px" }} />
       </NavLink>
       <NavContainer>
         {headerList.map((header, index) => (
@@ -49,7 +60,7 @@ export default function Header() {
           aria-expanded={open ? "true" : undefined}
           onClick={handleClick}
         >
-          Language
+          {languageReducer.value}
         </Button>
         <Menu
           id="basic-menu"
@@ -60,13 +71,13 @@ export default function Header() {
             "aria-labelledby": "basic-button",
           }}
         >
-          <MenuItem onClick={handleClose}>
+          <MenuItem onClick={() => handleLanguage("한국어")}>
             <MenuText>한국어</MenuText>
           </MenuItem>
-          <MenuItem onClick={handleClose}>
+          <MenuItem onClick={() => handleLanguage("English")}>
             <MenuText>English</MenuText>
           </MenuItem>
-          <MenuItem onClick={handleClose}>
+          <MenuItem onClick={() => handleLanguage("日本語")}>
             <MenuText style={{ fontFamily: "ヒラギノ角ゴ Pro W3" }}>日本語</MenuText>
           </MenuItem>
         </Menu>
@@ -78,10 +89,12 @@ const MenuText = styled.h1`
   font-family: "BM-Air", sans-serif, "Courier New", Courier, "ヒラギノ角ゴ Pro W3";
 `;
 const Container = styled.div`
-  height: 10vh;
+  height: 60px;
   width: 80vw;
   background-color: white;
   display: flex;
+  position: fixed;
+  z-index: 99;
   top: 0;
   justify-content: space-between;
   padding: 0px 10vw;

@@ -1,8 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import ScreenLayout from "../components/ScreenLayout";
 import styled from "styled-components";
 import { IoLogoInstagram, IoLogoFacebook, IoLogoGithub } from "react-icons/io";
-import { Link } from "react-router-dom";
 import { colors } from "../utils/colors";
 import { useForm } from "react-hook-form";
 import { init, send } from "@emailjs/browser";
@@ -11,7 +10,7 @@ export default function Contact() {
   const { register, handleSubmit, formState } = useForm({ mode: "onSubmit" });
   const onValid = (data) => {
     console.log(data);
-    // send("service_8nc23u4", "template_3fmphv9", data, "user_KLZ4yRcvBwnZVfFADzXUj");
+    send("service_8nc23u4", "template_3fmphv9", data, "user_KLZ4yRcvBwnZVfFADzXUj");
   };
   console.log(formState.errors?.from_email?.type);
   return (
@@ -37,7 +36,7 @@ export default function Contact() {
         <div style={{ width: "30vw" }}>
           <form
             action="#"
-            autocomplete="off"
+            autoComplete="off"
             onSubmit={handleSubmit(onValid)}
             style={{ display: "flex", flexDirection: "column" }}
           >
