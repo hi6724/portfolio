@@ -10,9 +10,11 @@ export default function NotFound() {
     <ScreenLayout>
       <Container>
         <div>
-          <Title>Page Not Found</Title>
+          <Title>404 Page Not Found</Title>
           <ErrorMsg>The requested URL </ErrorMsg>
-          <ErrorMsg>{location.pathname} was not found on this server</ErrorMsg>
+          <ErrorMsg>
+            <span style={{ fontFamily: "BM-Pro", fontSize: 20 }}>{location.pathname}</span> was not found on this server
+          </ErrorMsg>
         </div>
       </Container>
     </ScreenLayout>
