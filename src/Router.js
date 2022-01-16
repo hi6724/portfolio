@@ -7,6 +7,8 @@ import Home from "./screens/Home";
 import Introduce from "./screens/Introduce";
 import Portfolio from "./screens/Portfolio";
 import Project from "./screens/Project";
+import NotFound from "./screens/NotFound";
+
 export default function Router() {
   const location = useLocation();
   return (
@@ -19,14 +21,7 @@ export default function Router() {
           <Route path="portfolio/project/:id" element={<Project />} />
           <Route path="introduce" element={<Introduce />} />
           <Route path="contact" element={<Contact />} />
-          <Route
-            path="*"
-            element={
-              <main style={{ padding: "1rem" }}>
-                <p>There's nothing here!</p>
-              </main>
-            }
-          />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </AnimatePresence>
     </div>
