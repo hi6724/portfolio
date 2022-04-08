@@ -5,6 +5,7 @@ import { IoLogoInstagram, IoLogoFacebook, IoLogoGithub } from "react-icons/io";
 import { colors } from "../utils/colors";
 import { useForm } from "react-hook-form";
 import { init, send } from "@emailjs/browser";
+
 export default function Contact() {
   init("user_KLZ4yRcvBwnZVfFADzXUj");
   const { register, handleSubmit, formState } = useForm({ mode: "onSubmit" });
@@ -13,6 +14,7 @@ export default function Contact() {
     send("service_8nc23u4", "template_3fmphv9", data, "user_KLZ4yRcvBwnZVfFADzXUj");
   };
   console.log(formState.errors?.from_email?.type);
+
   return (
     <ScreenLayout>
       <Container>
@@ -48,7 +50,7 @@ export default function Contact() {
               }
               {...register("from_name", { required: { value: true, message: "이름을 입력해주세요" } })}
             />
-            {formState?.errors?.from_email?.type === "pattern" && <h1>옳바른 이메일을 입력해주세요</h1>}
+            {formState?.errors?.from_email?.type === "pattern" && <ErrorMsg>옳바른 이메일을 입력해주세요</ErrorMsg>}
 
             <Input
               autocomplete="off"
@@ -82,7 +84,10 @@ export default function Contact() {
     </ScreenLayout>
   );
 }
-
+const ErrorMsg = styled.h1`
+  color: tomato;
+  font-family: "BM-Air";
+`;
 const SubmitButton = styled.button`
   padding: 12px 24px;
   background-color: transparent;

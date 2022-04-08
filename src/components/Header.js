@@ -8,6 +8,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { change } from "../store/reducers/languageReducer";
+
 const headerList = [
   { text: "메인", path: "/" },
   { text: "포트폴리오", path: "/portfolio" },
