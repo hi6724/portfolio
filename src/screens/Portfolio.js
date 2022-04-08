@@ -1,46 +1,46 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import ScreenLayout from "../components/ScreenLayout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion";
+import Project from "../components/Project";
+
 const projects = [
   {
     id: "graduate",
     category: "졸업연구",
     title: "자율주행에 따른 교통제증완화",
+    tags: ["python", "SUMO"],
   },
   {
     id: "todoApp",
     category: "토이 프로젝트",
     title: "할일을 관리해주는 앱",
-  },
-  {
-    id: "dietApp",
-    category: "토이프로젝트",
-    title: "다이어트 도우미",
+    tags: ["react-native", "expo", "firebase"],
   },
   {
     id: "newneek",
     category: "클론코딩",
     title: "NEWNEEK 사이트의 클론코딩",
+    tags: ["react", "firebase"],
   },
   {
-    id: 5,
+    id: "twitter",
     category: "클론코딩",
-    title: "음 네이버?",
+    title: "트위터 따라하기",
+    tags: ["react", "firebase"],
+  },
+  {
+    id: "insta",
+    category: "클론코딩",
+    title: "인스타그램 클론코딩",
+    tags: ["react", "react-native", "graphql", "prisma"],
   },
   {
     id: 6,
     category: "클론코딩",
     title: "음음ㅇ므",
   },
-];
-const colors = [
-  { bgColor: "#5098BA", hoverColor: "#1f057b" },
-  { bgColor: "#48277C", hoverColor: "#aa00ff" },
-  { bgColor: "#9A69C2", hoverColor: "#4a148c" },
 ];
 
 export default function Portfolio() {
@@ -53,21 +53,7 @@ export default function Portfolio() {
     <ScreenLayout>
       <Container>
         {slicedProjects.map((project, i) => (
-          <SkillContainer style={{ backgroundColor: colors[i].bgColor }}>
-            <SkillWrapper
-              key={project.id}
-              transition={{ duration: 0.5 }}
-              initial={{ opacity: 0.1 }}
-              animate={{ opacity: 1 }}
-            >
-              <StyledText>
-                #{page + i} {project.category}
-              </StyledText>
-              <Title hoverColor={colors[i].hoverColor} to={`project/:${project.id}`}>
-                {project.title}
-              </Title>
-            </SkillWrapper>
-          </SkillContainer>
+          <Project key={i} project={project} i={i} />
         ))}
         {page > 1 && <PageBtnContainer right={false} page={page} setPage={setPage} />}
         {page < projects.length - 2 && <PageBtnContainer right={true} page={page} setPage={setPage} />}
@@ -82,6 +68,7 @@ const PageBtnContainer = ({ right, setPage, page }) => (
     </PageBtn>
   </div>
 );
+
 const PageBtn = styled.div`
   cursor: pointer;
   color: rgba(0, 0, 0, 0.3);
@@ -89,20 +76,6 @@ const PageBtn = styled.div`
     color: rgba(0, 0, 0, 0.8);
   }
   transition: all 0.3s;
-`;
-const Title = styled(NavLink)`
-  color: white;
-  font-family: "BM-Pro";
-  text-decoration: none;
-  font-size: min(30px, 2vw);
-  :hover {
-    color: ${(props) => props.hoverColor};
-  }
-  transition: all 0.3s;
-`;
-const StyledText = styled.h1`
-  color: white;
-  font-size: min(18px, 1.5vw);
 `;
 
 const Container = styled.div`
@@ -113,17 +86,23 @@ const Container = styled.div`
   align-items: center;
   position: relative;
 `;
-const SkillWrapper = styled(motion.div)`
-  display: flex;
-  gap: 15px;
-  flex-direction: column;
-  padding: 25px;
-`;
-const SkillContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
+
+// <SkillContainer key={project.id} style={{ backgroundColor: colors[i].bgColor }}>
+//   <SkillWrapper
+//     key={project.id}
+//     transition={{ duration: 0.5 }}
+//     initial={{ opacity: 0.1 }}
+//     animate={{ opacity: 1 }}
+//   >
+//     <StyledText>{project.category}</StyledText>
+//     <Title hoverColor={colors[i].hoverColor} onClick={() => setOpen(project.id)}>
+//       {project.title}
+//     </Title>
+//     <TagsContainer>참여도 : 100%</TagsContainer>
+//     <TagsContainer>
+//       {project.tags?.map((tag, i) => (
+//         <h1 key={i}>#{tag}</h1>
+//       ))}
+//     </TagsContainer>
+//   </SkillWrapper>
+// </SkillContainer>
