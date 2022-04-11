@@ -4,38 +4,45 @@ import DietApp from "../screens/DietApp";
 import Graduate from "../screens/Graduate";
 import Newneek from "../screens/Newneek";
 import TodoApp from "../screens/TodoApp";
+import styled from "styled-components";
 
-const Child = ({ id }) => {
+const Child = ({ id, project }) => {
   const routes = {
-    graduate: <Graduate />,
-    todoApp: <TodoApp />,
-    dietApp: <DietApp />,
-    newneek: <Newneek />,
+    graduate: <Graduate project={project} />,
+    todoApp: <TodoApp project={project} />,
+    dietApp: <DietApp project={project} />,
+    newneek: <Newneek project={project} />,
     false: null,
   };
   return routes[id];
 };
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "75vw",
-  height: "20vh",
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-const ProjectModal = React.forwardRef(({ open, setOpen }, ref) => {
+
+const ProjectModal = React.forwardRef(({ project, open, setOpen }, ref) => {
   return (
     <>
-      <Modal open={Boolean(open)} onClose={() => setOpen(false)}>
-        <Box sx={style}>
-          <Child id={open} />
-        </Box>
+      <Modal open={Boolean(open)} onClose={() => setOpen(false)} onClick={() => setOpen(false)}>
+        <Container>
+          <div style={{ position: "relative" }}>
+            <Child id={open} project={project} />
+          </div>
+        </Container>
       </Modal>
     </>
   );
 });
 export default ProjectModal;
+
+const Container = styled(Box)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max(70vw, 860px);
+  min-height: 30vh;
+  max-height: 88vh;
+  background-color: white;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;

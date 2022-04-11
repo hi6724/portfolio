@@ -1,4 +1,3 @@
-import { Modal } from "@mui/material";
 import { motion } from "framer-motion";
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
@@ -26,7 +25,7 @@ export default function Project({ project, i }) {
           <Title hoverColor={colors[i].hoverColor} onClick={() => setOpen(project.id)}>
             {project.title}
           </Title>
-          <TagsContainer>참여도 : 100%</TagsContainer>
+          <TagsContainer>참여도 : {project.degree}%</TagsContainer>
           <TagsContainer>
             {project.tags?.map((tag, i) => (
               <h1 key={i}>#{tag}</h1>
@@ -34,7 +33,7 @@ export default function Project({ project, i }) {
           </TagsContainer>
         </SkillWrapper>
       </SkillContainer>
-      <ProjectModal open={open} setOpen={setOpen} ref={ref} />
+      <ProjectModal project={project} open={open} setOpen={setOpen} ref={ref} />
     </>
   );
 }
@@ -63,7 +62,7 @@ const Title = styled.h1`
   color: white;
   font-family: "BM-Pro";
   text-decoration: none;
-  font-size: min(30px, 2vw);
+  font-size: 30px;
   :hover {
     color: ${(props) => props.hoverColor};
   }
@@ -71,5 +70,5 @@ const Title = styled.h1`
 `;
 const StyledText = styled.h1`
   color: white;
-  font-size: min(18px, 1.5vw);
+  font-size: 18px;
 `;
