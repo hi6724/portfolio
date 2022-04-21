@@ -20,8 +20,7 @@ const HeaderImg = styled.img`
   position: absolute;
   left: 0;
   height: 450px;
-  width: 450px;
-  top: -150px;
+  /* top: -150px; */
   border-radius: 15px;
 `;
 const HeaderContainer = styled.div`

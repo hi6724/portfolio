@@ -12,7 +12,8 @@ const Child = ({ id, project }) => {
     todoApp: <TodoApp project={project} />,
     dietApp: <DietApp project={project} />,
     newneek: <Newneek project={project} />,
-    false: null,
+    twitter: <DietApp project={project} />,
+    insta: <DietApp project={project} />,
   };
   return routes[id];
 };
@@ -22,7 +23,7 @@ const ProjectModal = React.forwardRef(({ project, open, setOpen }, ref) => {
     <>
       <Modal open={Boolean(open)} onClose={() => setOpen(false)} onClick={() => setOpen(false)}>
         <Container>
-          <div style={{ position: "relative" }}>
+          <div style={{ position: "relative", paddingBottom: 350 }}>
             <Child id={open} project={project} />
           </div>
         </Container>

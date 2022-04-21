@@ -1,27 +1,32 @@
 import React from "react";
 import styled from "styled-components";
+import { Container, SubTitle } from "./ProjectProblem";
 
-export default function ProjectSolution() {
+export default function ProjectSolution({ solutionObj, title }) {
   return (
     <Container>
-      <SubTitle>해결방안</SubTitle>
-      <SolutionText>어쩌구저쩌구</SolutionText>
+      <SubTitle>{title}</SubTitle>
+      <ContentContainer>
+        {solutionObj?.map((data, i) => (
+          <div key={i}>
+            <SolutionText>{data.problem}</SolutionText>
+            <SolutionText>
+              <strong style={{ fontWeight: 600, color: "black" }}>{data.solution}</strong>
+            </SolutionText>
+          </div>
+        ))}
+      </ContentContainer>
     </Container>
   );
 }
-const Container = styled.div`
+const ContentContainer = styled.div`
   display: flex;
-  gap: 45px;
-  align-items: center;
   flex-direction: column;
+  gap: 25px;
 `;
-
-const SubTitle = styled.h2`
+const SolutionText = styled.p`
+  color: rgba(0, 0, 0, 0.7);
   font-family: "BM-Air";
-  font-weight: 600;
-  color: #002366;
-  opacity: 0.8;
-  font-size: 40px;
-  font-weight: 600;
+  font-size: 24px;
+  margin-top: 8px;
 `;
-const SolutionText = styled.p``;
