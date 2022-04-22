@@ -10,8 +10,8 @@ const Child = ({ id, project }) => {
   const routes = {
     graduate: <Graduate project={project} />,
     todoApp: <TodoApp project={project} />,
+    jobScrapper: <DietApp project={project} />,
     dietApp: <DietApp project={project} />,
-    newneek: <Newneek project={project} />,
     twitter: <DietApp project={project} />,
     insta: <DietApp project={project} />,
   };

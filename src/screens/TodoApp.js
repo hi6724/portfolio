@@ -60,6 +60,10 @@ export default function TodoApp({ project }) {
         </ContentText>
         <ContentText>루틴을 지킬수록 씨앗에서 부화하는 아이디어를 참고했습니다</ContentText>
       </ProjectProblem>
+      <ProjectProblem title={"사용 툴"} url="/images/todoApp/react-native.png">
+        <ContentText>백엔드는 간단하게 사용 할 수 있는 firebase 를 이용하였습니다</ContentText>
+        <ContentText>프런트엔드는 react-native, expo 를 이용해서 개발하였습니다</ContentText>
+      </ProjectProblem>
       <ProjectSolution solutionObj={solutionObj} title="해결방안" />
       <ProjectResult title={"실행화면"} results={todoResults} />
       <ProjectConclusion conclusions={conclusions} />

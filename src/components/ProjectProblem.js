@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function ProjectProblem({ title, url, children }) {
+export default function ProjectProblem({ title, url, children, size = 450 }) {
   return (
     <Container>
       <SubTitle>{title}</SubTitle>
       <Content>
-        <ContentImg src={url} />
+        <ContentImg size={size} src={url} />
         <div>{children}</div>
       </Content>
     </Container>
@@ -14,7 +14,7 @@ export default function ProjectProblem({ title, url, children }) {
 }
 
 const ContentImg = styled.img`
-  width: 450px;
+  width: ${(props) => props.size}px;
   margin-right: 45px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;

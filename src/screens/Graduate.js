@@ -4,6 +4,7 @@ import ProjectConclusion from "../components/ProjectConclusion";
 import ProjectHeader from "../components/ProjectHeader";
 import ProjectProblem from "../components/ProjectProblem";
 import ProjectResult from "../components/ProjectResult";
+import ProjectSkill from "../components/ProjectSkill";
 import ProjectSolution from "../components/ProjectSolution";
 
 export default function Graduate({ project }) {
@@ -58,6 +59,12 @@ export default function Graduate({ project }) {
   return (
     <Container>
       <ProjectHeader project={project} url="/images/graduate/trafficJam.jpg" />
+      <ProjectSkill />
+      <ProjectProblem size={200} title={"사용 툴"} url="/images/graduate/SUMO.png">
+        <ContentText>교통 시뮬레이터중 하나인 *SUMO 를 이용했습니다</ContentText>
+        <ContentText>SUMO 가 제공하는 파이썬 라이브러리 Traci 를 이용해서 차량및, 신호를 제어 했습니다</ContentText>
+        <ContentText style={{ marginTop: 8, fontSize: 16 }}>*SUMO: (Simulation of Urban MObility)</ContentText>
+      </ProjectProblem>
       <ProjectProblem title={"해결과제 1 : 데드락 문제"} url="/images/graduate/deadlock.webp">
         <ContentText>가상의 신호등(VTL)을 이용해서 신호등을 없애는 연구를 진행했습니다 </ContentText>
         <ContentText>
