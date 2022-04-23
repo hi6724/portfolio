@@ -104,7 +104,7 @@ const ContentText = styled.p`
   margin-top: 35px;
   width: 360px;
   font-family: "BM-Air";
-  font-size: 24px;
+  font-size: 18px;
   line-height: 25px;
   word-break: keep-all;
 `;

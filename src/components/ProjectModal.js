@@ -5,13 +5,14 @@ import Graduate from "../screens/Graduate";
 import Newneek from "../screens/Newneek";
 import TodoApp from "../screens/TodoApp";
 import styled from "styled-components";
+import JobScrapper from "../screens/JobScrapper";
 
 const Child = ({ id, project }) => {
   const routes = {
     graduate: <Graduate project={project} />,
     todoApp: <TodoApp project={project} />,
-    jobScrapper: <DietApp project={project} />,
-    dietApp: <DietApp project={project} />,
+    jobScrapper: <JobScrapper project={project} />,
+    newneek: <DietApp project={project} />,
     twitter: <DietApp project={project} />,
     insta: <DietApp project={project} />,
   };

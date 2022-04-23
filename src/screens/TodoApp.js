@@ -45,7 +45,11 @@ export default function TodoApp({ project }) {
   return (
     <Container>
       <ProjectHeader project={project} url="/images/todoApp/todoThumb.webp" />
-      <ProjectProblem title={"설계"} url="/images/todoApp/todoSample22.jpg">
+      <ProjectProblem title={"설계"} url="/images/todoApp/appContest.jpg">
+        <ContentText>노마드코더의 앱 컨테스트에 참가하기위해서 만들었습니다</ContentText>
+        <UrlText href="https://nomadcoders.co/community/thread/1333">
+          https://nomadcoders.co/community/thread/1333
+        </UrlText>
         <ContentText>기존의 할일앱들은 하루 할일들만 보여주는 점이 불편하다고 느꼇습니다. </ContentText>
         <ContentText>
           그리고,
@@ -84,4 +88,12 @@ const ContentText = styled.p`
   font-size: 18px;
   line-height: 25px;
   word-break: keep-all;
+`;
+const UrlText = styled.a`
+  cursor: pointer;
+  color: #007aff;
+  opacity: 0.6;
+  :hover {
+    opacity: 2;
+  }
 `;

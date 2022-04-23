@@ -9,7 +9,7 @@ export default function ProjectResult({ results, title }) {
       <ContentContainer>
         {results?.map((result, i) => {
           return (
-            <div key={i}>
+            <Wrapper key={i}>
               <Content style={{ alignItems: "flex-start" }}>
                 <ContentImg src={result[0]?.img} />
                 <ContentText style={{ textAlign: "right" }}>{result[0]?.text}</ContentText>
@@ -18,13 +18,18 @@ export default function ProjectResult({ results, title }) {
                 <ContentText>{result[1]?.text}</ContentText>
                 <ContentImg src={result[1]?.img} />
               </Content>
-            </div>
+            </Wrapper>
           );
         })}
       </ContentContainer>
     </Container>
   );
 }
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
+`;
 const ContentImg = styled.img`
   width: 450px;
   /* height: 450px; */
@@ -33,12 +38,11 @@ const Content = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin-top: 150px;
 `;
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 150px;
   width: 90%;
 `;
 const ContentText = styled.p`

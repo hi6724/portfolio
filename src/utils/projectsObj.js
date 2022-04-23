@@ -41,10 +41,4 @@ export const projectObj = [
     tags: ["react", "react-native", "graphql", "prisma"],
     degree: 100,
   },
-  {
-    id: 6,
-    category: "클론코딩",
-    title: "음음ㅇ므",
-    degree: 100,
-  },
 ];
