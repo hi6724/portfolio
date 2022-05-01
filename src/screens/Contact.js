@@ -27,10 +27,10 @@ export default function Contact() {
             <SnsLink href={"https://github.com/hi6724"} target="_blank">
               <IoLogoGithub size={"3vw"} color={colors.gray} />
             </SnsLink>
-            <SnsLink href={"https://www.google.com/"} target="_blank">
+            <SnsLink href={"https://www.facebook.com/hunmok.ha"} target="_blank">
               <IoLogoFacebook size={"3vw"} color={colors.link} />
             </SnsLink>
-            <SnsLink href={"https://github.com/hi6724"} target="_blank">
+            <SnsLink href={"https://www.instagram.com/ha_hunmok/"} target="_blank">
               <IoLogoInstagram size={"3vw"} color={colors.pink} />
             </SnsLink>
           </div>
